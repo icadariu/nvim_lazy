@@ -38,9 +38,10 @@ vkm("n", "<Tab>a", "zg", { desc = "Spell - Add word to exception list" })
 vkm("n", "<Tab>s", "z=", { desc = "Spell - Suggest spelling corrections" })
 vkm("n", "<Tab>sn", "]s", { desc = "Spell - Go to next spelling issue" })
 vkm("n", "<Tab>sp", "[s", { desc = "Spell - Go to previous spelling issue" })
--- vkm("n", "<Tab>tc", _G.ToggleCursorColumn, { desc = "Toggle Cursor Column" })
--- vkm("n", "<Tab>tm", _G.ToggleMouse, { desc = "Toggle Mouse" })
--- vkm("n", "<Tab>ts", _G.toggle_spell_check, { desc = "Toggle grammar / spell check" })
+vkm("n", "<Tab>tc", _G.ToggleCursorColumn, { desc = "Toggle Cursor Column" })
+vkm("n", "<Tab>tm", _G.ToggleMouse, { desc = "Toggle Mouse" })
+vkm("n", "<Tab>ts", _G.toggle_spell_check, { desc = "Toggle grammar / spell check" })
 
+-- Telescope
 vkm("n", "<leader>.", builtin.oldfiles, { desc = "Telescope recent files" })
 vkm("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
