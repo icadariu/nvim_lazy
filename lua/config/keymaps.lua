@@ -35,6 +35,7 @@ LazyVim.toggle.map("<Tab>ts", LazyVim.toggle("spell", { name = "Toggle Spelling"
 vkm("n", "<C-d>", "<C-d>zz", { desc = "Scroll down half page; keep the current line in center" })
 vkm("n", "<C-u>", "<C-u>zz", { desc = "Scroll up half page; keep the current line in center" })
 vkm("n", "<Tab>a", "zg", { desc = "Spell - Add word to exception list" })
+vkm("n", "<Tab>sf", "1z=", { desc = "Spell - Use first correction" })
 vkm("n", "<Tab>s", "z=", { desc = "Spell - Suggest spelling corrections" })
 vkm("n", "<Tab>sn", "]s", { desc = "Spell - Go to next spelling issue" })
 vkm("n", "<Tab>sp", "[s", { desc = "Spell - Go to previous spelling issue" })
