@@ -5,6 +5,8 @@ local opt = vim.opt
 
 vim.api.nvim_set_keymap("i", "jj", "<ESC>", { desc = "Exit from insert mode", noremap = true })
 
+-- disable mouse by default
+opt.mouse = ""
 -- opt.hlsearch = true -- Highlight all search matches
 -- opt.incsearch = true -- Show incremental search results as you type
 opt.backup = false

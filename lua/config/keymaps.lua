@@ -6,19 +6,22 @@
 local builtin = require("telescope.builtin")
 local vkm = vim.keymap.set
 
+-- Move cursor left/right with Alt + h, l while in insert mode
+vkm("i", "<A-h>", "<Left>", { noremap = true, silent = true })
+vkm("i", "<A-l>", "<Right>", { noremap = true, silent = true })
 vkm("n", "<C-M-j>", "<cmd>cprev<CR>zz", { desc = "Backward qfixlist" })
 vkm("n", "<C-M-k>", "<cmd>cnext<CR>zz", { desc = "Forward qfixlist" })
 vkm("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clears the search" })
+vkm("n", "<leader>Y", [["+Y]], { desc = "Yank the current line to system clipboard in normal mode" })
 vkm("n", "<leader>bd", "<cmd>bp|bd #<CR>", { desc = "Close Buffer; Retain Split" })
 vkm("n", "<leader>cf", '<cmd>let @+ = expand("%")<CR>', { desc = "Copy File Name" })
 vkm("n", "<leader>cp", '<cmd>let @+ = expand("%:p")<CR>', { desc = "Copy File Path" })
 vkm("n", "<leader>qq", ":qa!<CR>", { desc = "Quit everything!" })
-vkm("n", "<leader>Y", [["+Y]], { desc = "Yank the current line to system clipboard in normal mode" })
 vkm("n", "==", "ggVG", { desc = "Select the entire file" })
 vkm("n", "J", "mzJ`z", { desc = "Join lines and keep cursor at same position" })
-vkm("n", "n", "nzzzv", { desc = "Next match; center the line; match is highlighted" })
 vkm("n", "N", "Nzzzv", { desc = "Previous match; center the line; match is highlighted" })
 vkm("n", "Q", "<nop>", { desc = "Disable Q, it usually triggers :Ex" })
+vkm("n", "n", "nzzzv", { desc = "Next match; center the line; match is highlighted" })
 vkm({ "n", "v" }, "<leader>d", [["_d]], { desc = "Remove without cluttering yank/delete history" })
 vkm({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard in n/v mode" })
 
