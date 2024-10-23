@@ -3,11 +3,12 @@
 * Generated using the starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
 * To get started, check [lazyvim installation](https://lazyvim.github.io/installation).
 
-* Plugins installed by default can be accessed [here](https://www.lazyvim.org/plugins).
-  * For info about Plugins, check [this](https://lazy.folke.io/spec) and [this](http://www.lazyvim.org/configuration/plugins)
+* Plugins installed by default can be checked [here](https://www.lazyvim.org/plugins).
+  * More info [here](https://lazy.folke.io/spec) and [here](http://www.lazyvim.org/configuration/plugins)
 
-* To view the default keymaps, check [check this](https://www.lazyvim.org/keymaps#general).
-* Check [docs folder](/docs/Good_to_know.md) for different tips & tricks!
+* Kemaps available:
+  * Default keymaps - [check this](https://www.lazyvim.org/keymaps#general).
+  * Mine - [docs folder](/docs/Good_to_know.md) for different tips & tricks!
 
 ## Installation
 

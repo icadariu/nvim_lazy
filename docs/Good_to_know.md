@@ -4,6 +4,7 @@
 
 * For a list of default shortcuts, check original [lazyvim keymaps](https://www.lazyvim.org/keymaps)
 * Also checking [this local file](../lua/config/keymaps.lua) will help.
+* Disable format using `<leader>uf`
 
 ## Tips & Tricks
 
