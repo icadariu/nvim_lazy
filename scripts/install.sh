@@ -5,11 +5,14 @@ echo "Identifying your shell"
 # add node path in your PATH
 if [[ $SHELL == "/bin/bash" ]]; then
     rcFile="$HOME/.bashrc"
+    echo $rcFile
 elif [[ $SHELL == "/bin/zsh" ]]; then
     rcFile="$HOME/.zshrc"
+    echo $rcFile
 else
     echo "Unsupported shell, please manually update your path for nvim or node"
     rcFile="$HOME/unknown-shell"
+    echo $rcFile
 fi
 
 echo "Cloning nvim repository"
@@ -72,7 +75,6 @@ if [[ ${answer} == 'y' ]]; then
 
     source $rcFile
     npm install neovim
-
 else
     echo "Node installation skipped"
 fi
