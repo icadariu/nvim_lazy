@@ -14,6 +14,7 @@ fi
 
 echo "Cloning nvim repository"
 mkdir -p ~/.config
+
 echo "Backup old nvim, if present"
 [ -d "$HOME/.config/nvim" ] && mv $HOME/.config/nvim $HOME/.config/nvim.bk_$RANDOM
 
