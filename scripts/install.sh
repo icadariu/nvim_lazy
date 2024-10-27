@@ -5,11 +5,14 @@ echo "Identifying your shell"
 # add node path in your PATH
 if [[ $SHELL == "/bin/bash" ]]; then
     rcFile="$HOME/.bashrc"
+    echo $rcFile
 elif [[ $SHELL == "/bin/zsh" ]]; then
     rcFile="$HOME/.zshrc"
+    echo $rcFile
 else
     echo "Unsupported shell, please manually update your path for nvim or node"
     rcFile="$HOME/unknown-shell"
+    echo $rcFile
 fi
 
 echo "Cloning nvim repository"
@@ -20,17 +23,22 @@ echo "Backup old nvim, if present"
 
 git clone https://github.com/icadariu/nvim.git ~/.config/nvim
 
+echo
+
 if ! command -v nvim >/dev/null 2>&1; then
-    echo "nvim not available. I will install latest version"
+    echo "nvim not available. Press Enter to install it."
+    read
 
     curl -Lso /tmp/nvim-linux64.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
     sudo tar -zxf /tmp/nvim-linux64.tar.gz -C /opt/
 
-    echo "export PATH=$PATH:/opt/nvim-linux64/bin" >> $rcFile
+    # Add nvim to PATH if not present.
+    grep -q "PATH=.*nvim-linux64" $rcFile || echo "export PATH=\$PATH:/opt/nvim-linux64/bin" >> $rcFile
 fi
 
 if ! command -v go >/dev/null 2>&1; then
-    echo "go not available. I will install go using snap"
+    echo "go not available. Press Enter to install it."
+    read
 
     sudo snap refresh
     sudo snap install go --classic
@@ -65,14 +73,17 @@ if [[ ${answer} == 'y' ]]; then
     # extract node to a custom directory, the directory should exist.
     tar xvf node-${node_version}-linux-x64.tar.xz --directory=$HOME/tools
 
-    echo "export PATH=$HOME/tools/node-${node_version}-linux-x64/bin:$PATH" >> $rcFile
+    # Add node to PATH if not present.
+    grep -q "PATH=.*${node_version}" ~/.bashrc || echo "export PATH=$HOME/tools/node-${node_version}-linux-x64/bin:\$PATH" >> $rcFile
+
+    export PATH=$PATH:$HOME/tools/node-${node_version}-linux-x64/bin
 
     mkdir -p $HOME/.npm-packages
     npm config set prefix $HOME/.npm-packages
 
-    source $rcFile
     npm install neovim
-
 else
     echo "Node installation skipped"
 fi
+
+echo "Make sure to source $rcFile before starting nvim"
