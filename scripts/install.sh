@@ -23,7 +23,7 @@ echo "Backup old nvim, if present"
 
 git clone https://github.com/icadariu/nvim.git ~/.config/nvim
 
-echo "Checking dependencies"
+echo
 
 if ! command -v nvim >/dev/null 2>&1; then
     echo "nvim not available. Press Enter to install it."
