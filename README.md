@@ -20,6 +20,8 @@
   curl -so install.sh https://raw.githubusercontent.com/icadariu/nvim/refs/heads/main/scripts/install.sh
 
   echo "Please check contents of the script before running it"
+  echo "Press Enter to accept the risks!"
+  read
   bash install.sh
   ```
 
