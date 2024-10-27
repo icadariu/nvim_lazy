@@ -12,28 +12,23 @@
 
 ## Installation
 
-* Packages:
+* :warning:These steps were tested on Ubuntu only.
+
+* Using the installation script
 
   ```sh
-  sudo apt install ripgrep python3-neo cargo python3-yamlfix
+  curl -so install.sh https://raw.githubusercontent.com/icadariu/nvim/refs/heads/main/scripts/install.sh
+
+  echo "Please check contents of the script before running it"
+  bash install.sh
   ```
 
-* Having Node installed in $HOME is a nice feature, but not really required
+* Start Neovim and check health
 
-  ```bash
-  # Ref: https://johnpapa.net/node-and-npm-without-sudo/
-  # https://nodejs.org/en/download/prebuilt-binaries
-  node_version='v22.9.0'
-
-  mkdir -p $HOME/tools && cd $HOME/tools
-
-  wget https://nodejs.org/dist/${node_version}/node-${node_version}-linux-x64.tar.xz
-  # extract node to a custom directory, the directory should exist.
-  tar xvf node-${node_version}-linux-x64.tar.xz --directory=$HOME/tools
-
-  # add node path in .zshrc
-  export PATH="$HOME/tools/node-${node_version}-linux-x64/bin:$PATH"
-
-  mkdir -p $HOME/.npm-packages
-  npm config set prefix ~/.npm-packages
+  ```sh
+  nvim
+  # check helalth once plugins are installed
+  :checkhealth
+  # To view potential errors, use
+  :NoiceErrors
   ```
