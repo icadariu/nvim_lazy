@@ -85,3 +85,5 @@ if [[ ${answer} == 'y' ]]; then
 else
     echo "Node installation skipped"
 fi
+
+echo "Make sure to source $rcFile before starting nvim"
