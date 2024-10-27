@@ -14,3 +14,7 @@
 * Check available keymaps from nvim:
   * Using `<leader>?`
   * Using Telescope search keymaps - `<leader>sk`
+
+## Debug
+
+* <https://www.youtube.com/watch?v=lyNfnI-B640>
