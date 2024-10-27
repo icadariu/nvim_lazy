@@ -1,6 +1,17 @@
 #!/bin/bash
 # Script used to setup this repository from scratch
 
+echo "Identifying your shell"
+# add node path in your PATH
+if [[ $SHELL == "/bin/bash" ]]; then
+  rcFile="$HOME/.bashrc"
+if [[ $SHELL == "/bin/zsh" ]]; then
+  rcFile="$HOME/.zshrc"
+else
+  echo "Unsupported shell, please manually update your path for nvim or node"
+  rcFile="$HOME/unknown-shell"
+fi
+
 echo "Cloning nvim repository"
 mkdir -p ~/.config
 echo "Backup old nvim, if present"
@@ -13,7 +24,8 @@ if ! command -v nvim >/dev/null 2>&1; then
 
     curl -Lso /tmp/nvim-linux64.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
     sudo tar -zxf /tmp/nvim-linux64.tar.gz -C /opt/
-    export PATH=$PATH:/opt/nvim-linux64/bin
+
+    echo "export PATH=$PATH:/opt/nvim-linux64/bin" >> $rcFile
 fi
 
 if ! command -v go >/dev/null 2>&1; then
@@ -37,7 +49,8 @@ if ! command -v go >/dev/null 2>&1; then
     sudo install /tmp/lazygit /usr/local/bin
 fi
 
-echo "Do you want to have node installed in your local folder? y/n " read answer
+echo "Do you want to have node installed in your local folder? y/n "
+read answer
 
 if [[ ${answer} == 'y' ]]; then
     # Ref: https://johnpapa.net/node-and-npm-without-sudo/
@@ -50,8 +63,7 @@ if [[ ${answer} == 'y' ]]; then
     # extract node to a custom directory, the directory should exist.
     tar xvf node-${node_version}-linux-x64.tar.xz --directory=$HOME/tools
 
-    # add node path in .zshrc
-    export PATH="$HOME/tools/node-${node_version}-linux-x64/bin:$PATH"
+    echo "export PATH=$HOME/tools/node-${node_version}-linux-x64/bin:$PATH" >> $rcFile
 
     mkdir -p $HOME/.npm-packages
     npm config set prefix ~/.npm-packages
