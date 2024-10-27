@@ -15,7 +15,7 @@ fi
 echo "Cloning nvim repository"
 mkdir -p ~/.config
 echo "Backup old nvim, if present"
-[ -d "$HOME/.config/nvim" ] && mv "$HOME/.config/nvim" "$HOME/.config/nvim.bk"
+[ -d "$HOME/.config/nvim" ] && mv "$HOME/.config/nvim{.bk$RANDOM}"
 
 git clone https://github.com/icadariu/nvim.git ~/.config/nvim
 
