@@ -76,7 +76,7 @@ if [[ ${answer} == 'y' ]]; then
     # Add node to PATH if not present.
     grep -q "PATH=.*${node_version}" ~/.bashrc || echo "export PATH=$HOME/tools/node-${node_version}-linux-x64/bin:\$PATH" >> $rcFile
 
-    . $rcFile
+    export PATH=$PATH:$HOME/tools/node-${node_version}-linux-x64/bin
 
     mkdir -p $HOME/.npm-packages
     npm config set prefix $HOME/.npm-packages
