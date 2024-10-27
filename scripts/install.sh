@@ -34,10 +34,11 @@ if ! command -v go >/dev/null 2>&1; then
 
     sudo snap refresh
     sudo snap install go --classic
+    sudo snap install ripgrep --classic
 fi
 
 echo "Installing other tools used by nvim setup"
-sudo apt install -y python3-pip python3-neo python3-yamlfix ripgrep cargo luarocks fd-find xclip
+sudo apt update && sudo apt install -y python3-pip python3-neo python3-yamlfix cargo luarocks fd-find xclip
 
 echo "This setup uses lazygit. I will now install lazygit if not present!"
 
@@ -67,8 +68,9 @@ if [[ ${answer} == 'y' ]]; then
     echo "export PATH=$HOME/tools/node-${node_version}-linux-x64/bin:$PATH" >> $rcFile
 
     mkdir -p $HOME/.npm-packages
-    npm config set prefix ~/.npm-packages
+    npm config set prefix $HOME/.npm-packages
 
+    source $rcFile
     npm install neovim
 
 else
