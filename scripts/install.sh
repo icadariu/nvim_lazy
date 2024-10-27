@@ -4,12 +4,12 @@
 echo "Identifying your shell"
 # add node path in your PATH
 if [[ $SHELL == "/bin/bash" ]]; then
-  rcFile="$HOME/.bashrc"
-if [[ $SHELL == "/bin/zsh" ]]; then
-  rcFile="$HOME/.zshrc"
+    rcFile="$HOME/.bashrc"
+elif [[ $SHELL == "/bin/zsh" ]]; then
+    rcFile="$HOME/.zshrc"
 else
-  echo "Unsupported shell, please manually update your path for nvim or node"
-  rcFile="$HOME/unknown-shell"
+    echo "Unsupported shell, please manually update your path for nvim or node"
+    rcFile="$HOME/unknown-shell"
 fi
 
 echo "Cloning nvim repository"
