@@ -4,22 +4,22 @@
 echo "Identifying your shell"
 # add node path in your PATH
 if [[ $SHELL == "/bin/bash" ]]; then
-    rcFile="$HOME/.bashrc"
-    echo $rcFile
+    rcFile="${HOME}/.bashrc"
+    echo "${rcFile}"
 elif [[ $SHELL == "/bin/zsh" ]]; then
-    rcFile="$HOME/.zshrc"
-    echo $rcFile
+    rcFile="{$HOME}/.zshrc"
+    echo "${rcFile}"
 else
     echo "Unsupported shell, please manually update your path for nvim or node"
-    rcFile="$HOME/unknown-shell"
-    echo $rcFile
+    rcFile="${HOME}/unknown-shell"
+    echo "${rcFile}"
 fi
 
 echo "Cloning nvim repository"
 mkdir -p ~/.config
 
 echo "Backup old nvim, if present"
-[ -d "$HOME/.config/nvim" ] && mv $HOME/.config/nvim $HOME/.config/nvim.bk_$RANDOM
+[ -d "${HOME}/.config/nvim" ] && mv "$HOME"/.config/nvim "$HOME"/.config/nvim.bk_$RANDOM
 
 git clone https://github.com/icadariu/nvim.git ~/.config/nvim
 
@@ -27,18 +27,18 @@ echo
 
 if ! command -v nvim >/dev/null 2>&1; then
     echo "nvim not available. Press Enter to install it."
-    read
+    read -r
 
     curl -Lso /tmp/nvim-linux64.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
     sudo tar -zxf /tmp/nvim-linux64.tar.gz -C /opt/
 
     # Add nvim to PATH if not present.
-    grep -q "PATH=.*nvim-linux64" $rcFile || echo "export PATH=\$PATH:/opt/nvim-linux64/bin" >> $rcFile
+    grep -q "PATH=.*nvim-linux64" "${rcFile}" || echo "export PATH=\$PATH:/opt/nvim-linux64/bin" >> "${rcFile}"
 fi
 
 if ! command -v go >/dev/null 2>&1; then
     echo "go not available. Press Enter to install it."
-    read
+    read -r
 
     sudo snap refresh
     sudo snap install go --classic
@@ -60,26 +60,26 @@ if ! command -v go >/dev/null 2>&1; then
 fi
 
 echo "Do you want to have node installed in your local folder? y/n "
-read answer
+read -r answer
 
 if [[ ${answer} == 'y' ]]; then
     # Ref: https://johnpapa.net/node-and-npm-without-sudo/
     # https://nodejs.org/en/download/prebuilt-binaries
     node_version='v22.9.0'
 
-    mkdir -p $HOME/tools && cd $HOME/tools
+    mkdir -p "$HOME"/tools && cd "$HOME"/tools || exit
 
     wget https://nodejs.org/dist/${node_version}/node-${node_version}-linux-x64.tar.xz
     # extract node to a custom directory, the directory should exist.
-    tar xvf node-${node_version}-linux-x64.tar.xz --directory=$HOME/tools
+    tar xvf node-${node_version}-linux-x64.tar.xz --directory="$HOME"/tools
 
     # Add node to PATH if not present.
-    grep -q "PATH=.*${node_version}" ~/.bashrc || echo "export PATH=$HOME/tools/node-${node_version}-linux-x64/bin:\$PATH" >> $rcFile
+    grep -q "PATH=.*${node_version}" ~/.bashrc || echo "export PATH=${HOME}/tools/node-${node_version}-linux-x64/bin:\$PATH" >> "${rcFile}"
 
-    export PATH=$PATH:$HOME/tools/node-${node_version}-linux-x64/bin
+    export PATH=$PATH:"$HOME"/tools/node-${node_version}-linux-x64/bin
 
-    mkdir -p $HOME/.npm-packages
-    npm config set prefix $HOME/.npm-packages
+    mkdir -p "$HOME"/.npm-packages
+    npm config set prefix "$HOME"/.npm-packages
 
     npm install neovim
 else
