@@ -1,12 +1,10 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
--- DO NOT USE `LazyVim.safe_keymap_set` IN YOUR OWN CONFIG!!
--- use `vim.keymap.set` instead
+-- Defauly keymaps locally: .local/share/nvim/lazy/LazyVim/lua/lazyvim/config/keymaps.lua
 local builtin = require("telescope.builtin")
 local vkm = vim.keymap.set
 
--- Move cursor left/right with Alt + h, l while in insert mode
+-- General
 vkm("i", "<A-h>", "<Left>", { noremap = true, silent = true })
 vkm("i", "<A-l>", "<Right>", { noremap = true, silent = true })
 vkm("n", "<C-M-j>", "<cmd>cprev<CR>zz", { desc = "Backward qfixlist" })
@@ -29,7 +27,6 @@ vkm({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard in n/
 vkm("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Block Down" })
 vkm("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Block Up" })
 vkm("v", "//", 'y/<C-R>"<CR>', { desc = "Search for highlighted text" })
--- Yank to system clipboard
 
 -------------------------
 -- Tab / ctrl key definitions --
