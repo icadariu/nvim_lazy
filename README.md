@@ -17,10 +17,11 @@
 * Using the installation script
 
   ```sh
-  echo "Directly installing using curl can be dangerours, make sure to check the script before!"
-  echo "Press Enter to accept & install!"
-  read
-  curl -so install.sh https://raw.githubusercontent.com/icadariu/nvim/refs/heads/main/scripts/install.sh | sh
+  echo "Download installation script locally"
+  curl -so /tmp/install.sh https://raw.githubusercontent.com/icadariu/nvim/refs/heads/main/scripts/install.sh
+  echo "Check script or press Enter to start the installation"
+  read -r
+  bash /tmp/install.sh
   ```
 
 * Start Neovim and check health
