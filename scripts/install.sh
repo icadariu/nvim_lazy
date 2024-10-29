@@ -25,6 +25,12 @@ git clone https://github.com/icadariu/nvim.git ~/.config/nvim
 
 echo
 
+if ! command -v git >/dev/null 2>&1; then
+    echo "git not available. Press Enter to install it."
+    read -r
+    sudo apt install -y git
+fi
+
 if ! command -v nvim >/dev/null 2>&1; then
     echo "nvim not available. Press Enter to install it."
     read -r

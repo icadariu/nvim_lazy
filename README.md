@@ -19,8 +19,7 @@
   ```sh
   echo "Download installation script locally"
   curl -so /tmp/install.sh https://raw.githubusercontent.com/icadariu/nvim/refs/heads/main/scripts/install.sh
-  echo "Check script or press Enter to start the installation"
-  read -r
+  echo "Check script before continuing with the next step!"
   bash /tmp/install.sh
   ```
 
