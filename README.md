@@ -6,7 +6,7 @@
 * Plugins installed by default can be checked [here](https://www.lazyvim.org/plugins).
   * More info [here](https://lazy.folke.io/spec) and [here](http://www.lazyvim.org/configuration/plugins)
 
-* Kemaps available:
+* Keymaps available:
   * Default keymaps - [check this](https://www.lazyvim.org/keymaps#general).
   * Mine - [docs folder](/docs/Good_to_know.md) for different tips & tricks!
 

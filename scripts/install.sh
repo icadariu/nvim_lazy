@@ -31,7 +31,6 @@ if ! command -v nvim >/dev/null 2>&1; then
 
     curl -Lso /tmp/nvim-linux64.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
     sudo tar -zxf /tmp/nvim-linux64.tar.gz -C /opt/
-
     # Add nvim to PATH if not present.
     grep -q "PATH=.*nvim-linux64" "${rcFile}" || echo "export PATH=\$PATH:/opt/nvim-linux64/bin" >> "${rcFile}"
 fi
@@ -46,7 +45,8 @@ if ! command -v go >/dev/null 2>&1; then
 fi
 
 echo "Installing other tools used by nvim setup"
-sudo apt update && sudo apt install -y python3-pip python3-neo python3-yamlfix cargo luarocks fd-find xclip
+sudo apt update && sudo apt install -y python3-pip python3-neo python3-yamlfix cargo luarocks fd-find xclip shellcheck
+
 
 echo "This setup uses lazygit. I will now install lazygit if not present!"
 

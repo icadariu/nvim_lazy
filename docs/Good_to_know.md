@@ -20,6 +20,22 @@
 * Diagnostics
   * `[d or ]d` - jump between identified issues
 
+* **Marks**
+  * view marks: `:marks`
+  * add mark: `ma` (or any letter after character after "m")
+  * delete mark: `:delm mymark` or `:delm!` to delete everything
+
 ## Debug
 
 * <https://www.youtube.com/watch?v=lyNfnI-B640>
+
+* check lsp log - `~/.local/state/nvim/lsp.log`
+* Or do something like:
+
+  ```txt
+  :lua vim.diagnostic.setqflist():q
+
+  # open the issues using
+  :copen
+
+  ```

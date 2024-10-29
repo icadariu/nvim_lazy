@@ -17,7 +17,8 @@ return {
         "yamlfmt",
         "stylua",
         "terraform-ls",
-        "yaml-language-server"
+        "yaml-language-server",
+        "bash-language-server",
       },
     },
   },

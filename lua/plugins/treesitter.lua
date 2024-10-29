@@ -15,6 +15,7 @@ return {
       "tmux",
       "jq",
       "yaml",
+      "ssh_config",
     },
     ignore_install = {
       "c",
