@@ -1,6 +1,10 @@
 # Config created out of 💤 LazyVim
 
-⚠️ This repository will be archived. The new one is located at <https://github.com/icadariu/nvim>
+----------------------------
+⚠️ 
+This repository will be archived. The new one is located at <https://github.com/icadariu/nvim>
+⚠️
+----------------------------
 
 * Generated using the starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
 * To get started, check [lazyvim installation](https://lazyvim.github.io/installation).
