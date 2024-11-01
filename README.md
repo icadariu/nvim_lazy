@@ -2,7 +2,9 @@
 
 ----------------------------
 ⚠️ 
+
 This repository will be archived. The new one is located at <https://github.com/icadariu/nvim>
+
 ⚠️
 ----------------------------
 
